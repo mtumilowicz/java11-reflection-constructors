@@ -23,3 +23,34 @@ concerning constructors:
             find a constructor in `getDeclaredConstructors()` by its name and parameters 
             or throwing `NoSuchMethodException` (if the constructor 
             cannot be found)
+            
+# project description
+Class structure:
+```
+class Child extends Parent {
+    private Child() {
+
+    }
+
+    Child(String name) {
+
+    }
+
+    protected Child(int count) {
+
+    }
+
+    public Child(String name, int count) {
+
+    }
+}
+
+
+class Parent {
+    public Parent() {
+
+    }
+}
+```
+
+all tests are in 
