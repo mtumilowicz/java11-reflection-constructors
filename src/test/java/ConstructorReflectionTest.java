@@ -44,6 +44,11 @@ public class ConstructorReflectionTest {
         Child.class.getConstructor();
     }
 
+    @Test(expected = NoSuchMethodException.class)
+    public void getConstructor_fromParent() throws NoSuchMethodException {
+        Child.class.getConstructor(String.class, String.class, String.class);
+    }
+
     @Test
     public void getConstructor_public() throws NoSuchMethodException {
         assertThat(Child.class.getConstructor(String.class, int.class).toGenericString(),
