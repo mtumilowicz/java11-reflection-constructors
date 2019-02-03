@@ -28,4 +28,19 @@ public class ConstructorReflectionTest {
     public void getConstructor_public() {
         
     }
+
+    @Test(expected = NoSuchMethodException.class)
+    public void getDeclaredConstructor_notFound() {
+
+    }
+
+    @Test
+    public void getDeclaredConstructor_private() {
+
+    }
+
+    @Test
+    public void getDeclaredConstructor_public() {
+
+    }
 }
