@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/mtumilowicz/java11-reflection-constructors.svg?branch=master)](https://travis-ci.com/mtumilowicz/java11-reflection-constructors)
+
 # java11-reflection-constructors
 Using reflection to get information about the constructors of a class.
 
