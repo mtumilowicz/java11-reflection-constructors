@@ -24,4 +24,8 @@ class Parent {
     public Parent() {
 
     }
+    
+    public Parent(String s1, String s2, String s3) {
+        
+    }
 }
