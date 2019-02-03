@@ -1,2 +1,2 @@
 # java11-reflection-constructors
-Gathering constructors basic info using reflection.
+Using reflection to get information about the constructors of a class.
