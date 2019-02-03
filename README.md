@@ -50,7 +50,77 @@ class Parent {
     public Parent() {
 
     }
+    
+    public Parent(String s1, String s2, String s3) {
+        
+    }
 }
 ```
 
-all tests are in 
+All tests are in `ConstructorReflectionTest`
+* `getConstructors`
+    ```
+    var constructors = Child.class.getConstructors();
+    
+    assertThat(constructors.length, is(1));
+    
+    var constructorsAsString = Arrays.toString(constructors);
+    assertThat(constructorsAsString, containsString("public Child(java.lang.String,int)"));
+    ```
+* `getDeclaredConstructors`
+    ```
+    var constructors = Child.class.getDeclaredConstructors();
+    
+    assertThat(constructors.length, is(4));
+    
+    var constructorsAsString = Arrays.toString(constructors);
+    assertThat(constructorsAsString, containsString("public Child(java.lang.String,int)"));
+    assertThat(constructorsAsString, containsString("protected Child(int)"));
+    assertThat(constructorsAsString, containsString("Child(java.lang.String)"));
+    assertThat(constructorsAsString, containsString("private Child()"));
+    ```
+* public constructor by params
+    * not found - `NoSuchMethodException`
+        ```
+        @Test(expected = NoSuchMethodException.class)
+        public void getConstructor_notFound() throws NoSuchMethodException {
+            Child.class.getConstructor(int.class, int.class);
+        }
+        ```
+    * not public - `NoSuchMethodException`
+        ```
+        @Test(expected = NoSuchMethodException.class)
+        public void getConstructor_private() throws NoSuchMethodException {
+            Child.class.getConstructor();
+        }
+        ```
+    * from parent - `NoSuchMethodException`
+        ```
+        @Test(expected = NoSuchMethodException.class)
+        public void getConstructor_fromParent() throws NoSuchMethodException {
+            Child.class.getConstructor(String.class, String.class, String.class);
+        }
+        ```
+    * public
+        ```
+        assertThat(Child.class.getConstructor(String.class, int.class).toGenericString(),
+                is("public Child(java.lang.String,int)"));
+        ```
+* declared constructor by params
+    * not found - `NoSuchMethodException`
+        ```
+        @Test(expected = NoSuchMethodException.class)
+        public void getDeclaredConstructor_notFound() throws NoSuchMethodException {
+            Child.class.getDeclaredConstructor(int.class, int.class);
+        }
+        ```
+    * private
+        ```
+        assertThat(Child.class.getDeclaredConstructor().toGenericString(),
+                is("private Child()"));
+        ```
+    * public
+        ```
+        assertThat(Child.class.getDeclaredConstructor(String.class, int.class).toGenericString(),
+                is("public Child(java.lang.String,int)"));
+        ```
