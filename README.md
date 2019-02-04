@@ -4,8 +4,7 @@
 Using reflection to get information about the constructors of a class.
 
 # preface
-https://github.com/mtumilowicz/java11-reflection-executables
-
+* https://github.com/mtumilowicz/java11-reflection-executables
 * `java.lang.reflect.Constructor` is used to represent method
 * `Class` provides us with four methods to gather information
 concerning constructors:
