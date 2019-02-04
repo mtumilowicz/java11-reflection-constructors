@@ -16,12 +16,12 @@ concerning constructors:
     * constructor by parameters
         * `Constructor getConstructor()` - 
             you can think of this method as a way of trying to 
-            find a constructor in `getConstructors()` by its name and parameters 
+            find a constructor in `getConstructors()` by parameters 
             or throwing `NoSuchMethodException` (if the constructor 
             cannot be found)
         * `Constructor getDeclaredConstructor()` - 
             you can think of this method as a way of trying to 
-            find a constructor in `getDeclaredConstructors()` by its name and parameters 
+            find a constructor in `getDeclaredConstructors()` by parameters 
             or throwing `NoSuchMethodException` (if the constructor 
             cannot be found)
             
